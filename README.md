@@ -21,7 +21,7 @@ https://www.docker.com/products/docker-desktop/
 
 #### Using Docker
 
-1) Login to Docker.
+1) Open GitBash and Login to Docker.
 ````
 docker login
 ````
