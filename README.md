@@ -57,6 +57,14 @@ docker start <container-ID>
 ````
 docker stop <container-ID>
 ````
+8) To remove a container:
+````
+docker rm <container-ID> -f
+````
+9) To remove an image:
+````
+docker rmi <image-ID> -f
+````
 
 #### Accessing the Shell in a Docker container
 
