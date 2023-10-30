@@ -78,6 +78,10 @@ docker exec -it <container-ID> sh
 ````
 - `-it` - interactive
 - Up and down commands don't work when connecting to this shell.
+- If this command doesn't work, run the following command first:
+````
+alias docker="winpty docker"
+````
 3) Install any dependencies you need:
 ````
 apt update -y
