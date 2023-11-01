@@ -19,6 +19,12 @@ https://www.docker.com/products/docker-desktop/
 - Sign up to Docker Hub with a personal email address.
 - This is where you can make new repositories for your Docker Images.
 
+![Alt text](<images/1. dockerhub repos.jpg>)
+
+- Previously made images can be pulled from the repo
+
+![Alt text](<images/2. dockerhub pull command.jpg>)
+
 #### Using Docker
 
 1) Open GitBash and Login to Docker.
@@ -136,5 +142,46 @@ docker tag <image-name> <docker-hub-username/repo-name:tag>
 ````
 docker push <docker-hub-username/repo-name:tag>
 ````
+
+#### Making a NodeJS image
+
+1) Make a local host folder for Docker.
+2) Make a Dockerfile in that folder from the GitBash terminal:
+````
+nano Dockerfile
+````
+- note Dockerfile needs a capital D
+3) Put the following inside the Dockerfile:
+````
+# Node version
+FROM node:12
+
+# Set the working directory in the container
+WORKDIR /usr/src/app
+
+# Copy package.json and package-lock.json to the working directory
+COPY package*.json ./
+
+# Install app dependencies
+RUN npm install
+
+# Copy the rest of the application code to the working directory
+COPY . .
+
+# Expose the port that the app runs on
+EXPOSE 3000
+
+# Command to run the app
+CMD [ "node", "app.js" ]
+````
+4) Build the image (make sure you're located in the folder with the Dockerfile):
+````
+docker build -t alexanderson2209/tech254-nodejs
+````
+5) Run the container:
+````
+docker run -d -p 3000:3000 alexanderson2209/tech254-nodejs
+````
+6) Go to `http://localhost:3000` to see the application running.
 
 ## Kubernetes (K8)
