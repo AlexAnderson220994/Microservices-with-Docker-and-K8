@@ -26,6 +26,9 @@
 https://www.docker.com/products/docker-desktop/
 ````
 - Choose the correct download for your OS.
+- You can view your image library on the Docker Desktop console
+
+![Alt text](<images/3. docker desktop.jpg>)
 
 #### Make a Docker Hub account
 
