@@ -117,6 +117,9 @@ apt install sudo
 ````
 apt install nano
 ````
+````
+apt install systemctl
+````
 - The container is extremely lightweight so a lot of things won't be pre installed.
 
 #### Making a Docker image
