@@ -209,9 +209,17 @@ docker run -d -p 3000:3000 alexanderson2209/tech254-nodejs
 
 ![Alt text](<images/4. k8 architecture.jpg>)
 
-### Why use K8?
+### What is K8?
 
 - K8 is an open source orchestraction platform widely used in the world of cloud-native application development and deployment.
+- Kubernetes is a portable, extensible, open source platform for managing containerized workloads and services, that facilitates both declarative configuration and automation.
+
+### Why use K8
+
+- Allows you to run multiple Virtual Machines (VMs) on a single physical server's CPU. 
+- Virtualisation allows applications to be isolated between VMs and provides a level of security as the information of one application cannot be freely accessed by another application.
+- Open source
+- Brings together development and operations by design
 
 ### Benefits of K8
 
