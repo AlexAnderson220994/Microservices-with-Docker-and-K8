@@ -382,3 +382,6 @@ spec:
   type: LoadBalancer  # Change to NodePort or ClusterIP if needed
 ````
 2) On this occasion, use LoadBalancer instead of NodePort
+
+![Alt text](<images/10. services available.jpg>)
+![Alt text](<images/11. pods.jpg>)
