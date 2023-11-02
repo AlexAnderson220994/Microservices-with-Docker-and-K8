@@ -260,10 +260,13 @@ kubectl create -f <file.yml>
 ````
 kubectl get pods
 ````
+![Alt text](<images/8. pods.jpg>)
 4) To deleted a pod:
 ````
 kubectl delete pod <pod-name>
 ````
+5) After this a service file has to be made.
+- The Kubernetes Service file is used to define and configure a Kubernetes Service, which is a fundamental resource in Kubernetes for exposing and load balancing your application within the cluster.
 
 #### Creating nginx-deploy.yml
 
@@ -308,5 +311,20 @@ spec:
     - protocol: TCP
       port: 80  # Port to expose on the service
       targetPort: 80  # Port that the Nginx pods are listening on
-  type: LoadBalancer  # Change to NodePort or ClusterIP if needed
+  type: NodePort  # Change to LoadBalancer or ClusterIP if needed
+````
+- Service Type: The type field in the Service configuration specifies how the service should be exposed. Common service types include:
+- ClusterIP: The service is exposed internally within the cluster.
+- NodePort: The service is exposed on a specific port on each node in the cluster.
+- LoadBalancer: The service is exposed using a cloud provider's load balancer.
+- ExternalName: Maps the service to an external DNS name.
+3) Once this has been created, the `kubectl get svc` command will show what port this is running on.
+![Alt text](<images/9. nginx running.jpg>)
+4) To delete a service:
+````
+kubectl delete service <service-name>
+````
+OR
+````
+kubectl delete -f my-service.yaml
 ````
