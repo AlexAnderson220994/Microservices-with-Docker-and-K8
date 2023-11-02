@@ -329,3 +329,48 @@ OR
 ````
 kubectl delete -f my-service.yaml
 ````
+
+#### Creating Node deployment
+
+1) Follow the same process as nginx deployment by creating a yaml file.
+2) Add the following text:
+````
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-deployment
+spec:
+  selector:
+    matchLabels:
+      app: node-app
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: node-app
+    spec:
+      containers:
+      - name: node-app
+        image: alexanderson2209/tech254-alex-nodejs:v1
+        ports:
+        - containerPort: 3000  # Port the node.js app listens on
+````
+
+#### Creating Node service
+
+1) Make a node-service.yml file.
+````
+apiVersion: v1
+kind: Service
+metadata:
+  name: node-service
+spec:
+  selector:
+    app: node-app  # This should match the labels in your Node.js Deployment
+  ports:
+    - protocol: TCP
+      port: 80  # Port to expose on the service
+      targetPort: 3000  # Port that your Node.js app is listening on
+  type: LoadBalancer  # Change to NodePort or ClusterIP if needed
+````
+2) On this occasion, use LoadBalancer instead of NodePort
