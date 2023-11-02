@@ -1,0 +1,18 @@
+version: "3"
+services:
+ app:
+ container_name: df7ba8d96fb3
+ image: alexanderson2209/tech254-alex-nodejs
+ restart: always
+ build: .
+ ports:
+ - "3000:3000"
+ links:
+ - mongo
+ mongo:
+ container_name: 668d7b900e65
+ image: alexanderson2209/tech254-alex-mongodb
+ volumes:
+ - ./data:/data/db
+ ports:
+ - '27017:27017'

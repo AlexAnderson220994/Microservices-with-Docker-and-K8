@@ -248,3 +248,65 @@ docker run -d -p 3000:3000 alexanderson2209/tech254-nodejs
 4) Tick the enable box.
 ![Alt text](<images/7. k8 settings.jpg>)
 5) Click `Apply & restart`
+
+#### Creating and seeing Kubernetes resources
+
+1) To create a resource, first you need to make a Yaml file to define the resource (see next section for example).
+2) Run the following command to create the resource from the Yaml file:
+````
+kubectl create -f <file.yml>
+````
+3) To view the pods that have been created:
+````
+kubectl get pods
+````
+4) To deleted a pod:
+````
+kubectl delete pod <pod-name>
+````
+
+#### Creating nginx-deploy.yml
+
+1) Create a Yaml file called nginx-deploy.
+2) Add the following code (be careful of spacings and indentation):
+````
+apiVersion: apps/v1 # which API to use for deployment
+kind: Deployment # pod - what kind of service/object
+# What would you like to call it
+metadata:
+  name: nginx-deployment # name the deployment
+spec:
+  selector:
+    matchLabels:
+      app: nginx # look for this label to match with k8 service
+  replicas: 3 #number of pods
+  template:
+    metadata:
+      labels:
+        app: nginx # this label connects to the service or any other k8 components
+    spec:
+      containers:
+      - name: nginx
+        image: alexanderson2209/tech254-alex-nginx:v1 # use the image on docker hub
+        ports:
+        - containerPort: 80
+````
+
+#### Creating nginx-service.yml
+
+1) Make a Yaml file called nginx-service.yml
+2) Add the following code (be careful of spacings and indentation):
+````
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service
+spec:
+  selector:
+    app: nginx  # This should match the labels in your Nginx deployment
+  ports:
+    - protocol: TCP
+      port: 80  # Port to expose on the service
+      targetPort: 80  # Port that the Nginx pods are listening on
+  type: LoadBalancer  # Change to NodePort or ClusterIP if needed
+````
