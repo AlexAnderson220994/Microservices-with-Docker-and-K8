@@ -226,4 +226,17 @@ docker run -d -p 3000:3000 alexanderson2209/tech254-nodejs
 
 - Simplicity - If an application is straightforward and doesn't require scaling - K8 will add unnecessary complexity.
 - Limited resources - For small teams or teams with limited resources, setting up K8 clusters can be time consuming and take up a lot of resource.
-- Using K8 effectively requires skilled infrastructure personnell
+- Using K8 effectively requires skilled infrastructure personnel
+
+### Setting up K8
+
+#### Installing K8
+
+1) Open the Docker Desktop window.
+2) Click on the settings button.
+![Alt text](<images/5. settings.jpg>)
+3) On the left hand pane, click on Kubernetes.
+![Alt text](<images/6. settings - k8.jpg>)
+4) Tick the enable box.
+![Alt text](<images/7. k8 settings.jpg>)
+5) Click `Apply & restart`
