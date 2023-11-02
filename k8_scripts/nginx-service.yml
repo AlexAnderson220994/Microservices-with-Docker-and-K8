@@ -9,4 +9,4 @@ spec:
     - protocol: TCP
       port: 80  # Port to expose on the service
       targetPort: 80  # Port that the Nginx pods are listening on
-  type: LoadBalancer  # Change to NodePort or ClusterIP if needed
+  type: NodePort  # Change to LoadBalancer or ClusterIP if needed
