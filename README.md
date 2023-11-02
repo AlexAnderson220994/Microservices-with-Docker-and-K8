@@ -17,6 +17,10 @@
 - Resource Efficiency: Efficient in terms of memory and CPU.
 - Rapid Deployment: Quick start/stop for faster development.
 
+### Containerisation with Docker
+
+![Alt text](<images/13. docker diagram.jpg>)
+
 ### Setting up Docker
 
 #### Installing Docker
@@ -235,6 +239,10 @@ docker run -d -p 3000:3000 alexanderson2209/tech254-nodejs
 - Simplicity - If an application is straightforward and doesn't require scaling - K8 will add unnecessary complexity.
 - Limited resources - For small teams or teams with limited resources, setting up K8 clusters can be time consuming and take up a lot of resource.
 - Using K8 effectively requires skilled infrastructure personnel
+
+### Virtualisation with K8
+
+![Alt text](<images/12. k8 diagram.jpg>)
 
 ### Setting up K8
 
