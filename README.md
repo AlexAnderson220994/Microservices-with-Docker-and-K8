@@ -318,6 +318,7 @@ spec:
 - NodePort: The service is exposed on a specific port on each node in the cluster.
 - LoadBalancer: The service is exposed using a cloud provider's load balancer.
 - ExternalName: Maps the service to an external DNS name.
+- The port range is 30000 to 32767
 3) Once this has been created, the `kubectl get svc` command will show what port this is running on.
 ![Alt text](<images/9. nginx running.jpg>)
 4) To delete a service:
