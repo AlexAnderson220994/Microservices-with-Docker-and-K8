@@ -204,3 +204,26 @@ docker run -d -p 3000:3000 alexanderson2209/tech254-nodejs
 6) Go to `http://localhost:3000` to see the application running.
 
 ## Kubernetes (K8)
+
+### K8 Architecture
+
+
+
+### Why use K8?
+
+- K8 is an open source orchestraction platform widely used in the world of cloud-native application development and deployment.
+
+### Benefits of K8
+
+- Orchestrate containers - Kubernetes automates the deployment, scaling, and management of containers.
+- Scalability - Applications can be scaled horizontally, adding or removing containers when needed to handle traffic.
+- Highly available - K8 can automatically distribute containers across multiple nodes, so if one node fails it can still run on a healthy node.
+- Portable - K8 can be run on various cloud providers, on-prem datacentres, or hybrid environments.
+- Large community - K8 is open source and has a large and active community - lots of support and documentation.
+- Cost efficient - Resource usage is optimised and management tasks are automated, resulting in reduced operational costs during deployment.
+
+### When would you not use K8?
+
+- Simplicity - If an application is straightforward and doesn't require scaling - K8 will add unnecessary complexity.
+- Limited resources - For small teams or teams with limited resources, setting up K8 clusters can be time consuming and take up a lot of resource.
+- Using K8 effectively requires skilled infrastructure personnell
