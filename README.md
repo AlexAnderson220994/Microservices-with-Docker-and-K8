@@ -207,7 +207,7 @@ docker run -d -p 3000:3000 alexanderson2209/tech254-nodejs
 
 ### K8 Architecture
 
-
+![Alt text](<images/4. k8 architecture.jpg>)
 
 ### Why use K8?
 
