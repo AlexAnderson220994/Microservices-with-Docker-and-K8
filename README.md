@@ -154,7 +154,7 @@ COPY index.html /usr/share/nginx/html
 - This uses the nginx image and copies/replaces your new local index.html file into the specified file path.
 4) Build the Docker image:
 ````
-docker build -t <image-name>
+docker build -t <image-name> .
 ````
 5) Make a repo on Docker hub for this image.
 6) Tag the Docker image:
@@ -385,3 +385,80 @@ spec:
 
 ![Alt text](<images/10. services available.jpg>)
 ![Alt text](<images/11. pods.jpg>)
+
+#### Creating MongoDB
+
+1) To create the MongoDB deploy file:
+````
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongo-deployment
+spec:
+  selector:
+    matchLabels:
+      app: mongodb
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: mongodb
+    spec:
+      containers:
+      - name: mongodb
+        image: alexanderson2209/mongo-test:v2
+        ports:
+        - containerPort: 27017  # MongoDB port
+````
+2) To create the MongoDB service file
+````
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongo-service
+spec:
+  selector:
+    app: mongodb  # This should match the labels in your Node.js Deployment
+  ports:
+    - protocol: TCP
+      port: 27017  # Port to expose on the service
+      targetPort: 27017  
+  type: NodePort  # Change to NodePort or ClusterIP if needed
+````
+3) Add this to node-deploy.yml
+````
+        env:
+        - name: DB_HOST
+          value: mongodb://10.108.27.134:27017/posts
+        lifecycle:
+          postStart:
+            exec:
+              command: ["/bin/sh","-c", node seeds/seed.js]
+````
+
+#### Additional commands
+
+````
+kubectl delete pod <pod-name>
+````
+````
+kubectl get deploy
+````
+````
+kubectl edit deploy <deployment-name>
+````
+````
+kubectl edit pod <pod-ID>
+````
+````
+kubectl describe pod <pod-ID>
+````
+````
+kubectl get pv
+````
+````
+kubectl get pvc
+````
+````
+kubectl get hpa
+````
